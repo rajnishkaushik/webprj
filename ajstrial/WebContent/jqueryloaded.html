@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ready demo</title>
+<style>
+p {
+	color: red;
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+	$(document).ready(function() {
+		$("p").text("The DOM is now loaded and can be manipulated.");
+		alert("DOM  is now loaded");
+		var req = new XMLHttpRequest();
+		req.open('HEAD', 'http://localhost:8080/ajstrial/jqueryloaded.html', false);
+		req.send(null);
+		
+		
+		var headers = req.getAllResponseHeaders().toLowerCase();
+		alert(headers);
+	});
+</script>
+</head>
+<body>
+	<p>Not loaded yet.</p>
+	<script>
+		//alert("DOM  is not loaded");
+	</script>
+</body>
+</html>
